@@ -1,0 +1,82 @@
+nav {
+    background-color: lightseagreen;
+    border-radius: 1em;
+    height: 40px;
+    width: 100%;
+}
+
+nav button {
+    margin-left: 20px;
+    background-color: seagreen;
+    text-align: center;
+    padding: 5px 10px;
+    font-family: cursive;
+    color: white;
+    border-radius: 1.2em;
+    margin-top: 4px;
+}
+
+h1, li {
+    font-family: cursive;
+}
+
+p {
+    font-family: cursive;
+    border-radius: 1.6em;
+}
+
+.general {
+    background-color: lightgreen;
+    color: white;
+    border-radius: 1.6em;
+    padding-left: 1em;
+    padding-bottom: .2em;
+    width: 97.5%;
+}
+
+.general li{
+    color: teal;
+}
+
+.general h3{
+    color: green;
+    font-family: cursive;
+}
+
+#contactForm label{
+    color: green;
+}
+
+#contactForm input{
+    border-radius: 0.4em;
+    border-width: 0em;
+}
+
+#contactForm textarea{
+    border-radius: 0.4em;
+    border-width: 0em;
+}
+
+#submit {
+    background-color: seagreen;
+    border-width: thick;
+    height: 30px;
+    width: 70px;
+}
+
+#table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    font-family: cursive;
+    color: teal;
+    padding: 0px 2px;
+}
+
+#table {
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#mainHeader {
+    margin-bottom: 0em;
+}

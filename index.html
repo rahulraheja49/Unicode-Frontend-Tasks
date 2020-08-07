@@ -1,0 +1,169 @@
+<html>
+    <head>
+        <title>Resume</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <h1 id="mainHeader">Unicode Frontend Tasks</h1>
+        <nav>
+            <button id="resumeShow">Resume</button>
+            <button id="contactFormShow">Contact Me</button>
+            <button id="apiShow">Check COVID-19 Details</button>
+        </nav>
+        <div id="resume" class="general">
+            <h1>Rahul Raheja</h1>
+            <p>
+                About Me: I'm a second year Computer Engineering student. A web development enthusiast. I started web development with PHP and have learnt a great deal since. 
+            </p>
+            <p>
+                <h3>Education:</h3>
+                <ul>
+                    <li>Jamnabai Narsee School - Batch of 2017</li>
+                    <li>Alpha Junior College of Science and Commerce - 2019</li>
+                    <li>Dwarkadas J. Sanghvi College of Engineering - 2023</li>
+                </ul>
+            </p>
+            <p>
+                <h3>Skills:</h3>
+                <ul>
+                    <li>PHP & PDO</li>
+                    <li>JavaScript</li>
+                    <li>MySQL</li>
+                    <li>C Programming Language</li>
+                    <li>Python</li>
+                    <li>HTML5 and CSS3</li>
+                    <li>Axios</li>
+                    <li>Git & Github</li>
+                    <li>Angular(Only Theory)</li>
+                </ul>
+            </p>
+            <p>
+                Project Link: <a href="https://github.com/rahulraheja49/jQuery-CRUD">CRUD application using jQuery</a>
+            </p>
+        </div>
+        <div id="contactForm" style="display:none" class="general">
+            <h1>Contact Me</h1>
+            <form action="post">
+                <p>
+                    <label for="name">Name: </label>
+                    <input required type="text" name="name" id="name">
+                </p>
+                <p>
+                    <label for="phone">Phone Number: </label>
+                    <input required type="int" name="phone" id="phone">
+                </p>
+                <p>
+                    <label for="email">Email: </label>
+                    <input required type="text" name="email" id="email">
+                </p>
+                <p>
+                    <label for="query">Queries: </label>
+                    <textarea required name="query" cols="20" rows="5" id="query"></textarea>
+                </p>
+                <p>
+                    <input type="submit" onclick="return validateInput();" value="Submit" id="submit">
+                </p>
+                <div id="res"></div>
+            </form>
+        </div>
+        <div id="corona" style="display: none;" class="general">
+            <h1>COVID-19 Status</h1>
+            <table id="table">
+                <tr>
+                    <th>Country</th>
+                    <th>Cases</th>
+                    <th>Deaths</th>
+                    <th>Recovered</th>
+                    <th>Active</th>
+                </tr>
+            </table>
+            <script src="main.js"></script>
+        </div>
+        <script>
+            $(document).ready(function(){
+                window.console && console.log('Document ready called');
+                $('#resumeShow').click(function(event){
+                    event.preventDefault();
+                    $('#resume').show();
+                    $('#contactForm').hide();
+                    $('#corona').hide();
+                });
+                $('#contactFormShow').click(function(event){
+                    event.preventDefault();
+                    $('#resume').hide();
+                    $('#contactForm').show();
+                    $('#corona').hide();
+                });
+                $('#apiShow').click(function(event){
+                    event.preventDefault();
+                    $('#resume').hide();
+                    $('#contactForm').hide();
+                    $('#corona').show();
+                });
+                // $('#name').change(function() {
+                //     nm = document.getElementById('name').value;
+                //     if(nm.length<0){
+                //         $('#nameError').show();
+                //         document.getElementById('nameError').innerHTML += "Name cannot be empty";
+                //     }
+                // })
+            })
+        </script>
+        <script>
+            function validateInput() {
+                // console.log('Validating...');
+                nm = document.getElementById('name').value;
+                phone = document.getElementById('phone').value;
+                email = document.getElementById('email').value;
+                query = document.getElementById('query').value;
+                // if(nm.length<0){
+                //     $('#nameError').show();
+                //     return document.getElementById('nameError').innerHTML += "Name cannot be empty";
+                // }
+                // if(phone.length<0){
+                //     $('#numberError').show();
+                //     return document.getElementById('numberError').innerHTML += "Number cannot have less than 10 digits";
+                // }
+                // if(email.indexOf('@') == -1){
+                //     $('#nemailError').show();
+                //     return document.getElementById('emailError').innerHTML += "Email is invalid";
+                // }
+                // if(query.length<0){
+                //     $('#queryEmpty').show();
+                //     return document.getElementById('queryEmpty').innerHTML += "Query cannot be empty";
+                // }
+
+                if(nm.length<=0){
+                    if(phone.length<10){
+                        if(email.indexOf('@') == -1){
+                            alert("Name cannot be empty, phone number has to be atleast 10 digits, email invalid");
+                            return false;
+                        } else {
+                            alert("Name cannot be empty, phone number has to be atleast 10 digits");
+                            return false;
+                        }
+                    } else {
+                        alert("Name cannot be empty");
+                        return false;
+                    }
+                } else if(phone.length<10) {
+                    if(email.indexOf('@') == -1) {
+                        alert("Phone number has to be more than 10 digits, email invalid");
+                        return false;
+                    } else {
+                        alert("Phone number has to be more than 10 digits");
+                        return false;
+                    }
+                } else if(email.indexOf('@') == -1) {
+                    alert("Email invalid");
+                    return false;
+                } else {
+                    document.getElementById('res').innerHTML += `Name: ${nm}, Phone: ${phone}, Email: ${email}, Query: ${query} <br>`;
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>
